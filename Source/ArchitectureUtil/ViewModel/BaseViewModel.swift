@@ -1,5 +1,5 @@
-import Foundation
 import Combine
+import Foundation
 
 open class BaseViewModel<I: PBaseInteractor, Event>: PBaseViewModel {
     public let interactor: I
