@@ -1,4 +1,4 @@
-public struct GenericFactory<ViewModel: PBaseViewModel>: PBaseFactory {
+public struct GenericFactory <ViewModel: PBaseViewModel>: PBaseFactory {
     let creation: () -> ViewModel
 
     public init (creation: @escaping () -> ViewModel) {
@@ -6,10 +6,16 @@ public struct GenericFactory<ViewModel: PBaseViewModel>: PBaseFactory {
     }
 
     public init (_ viewModel: ViewModel) {
-        self.creation = { viewModel }
+        self.init { viewModel }
     }
 
     public func create () -> ViewModel {
         creation()
+    }
+}
+
+extension GenericFactory where ViewModel == BaseViewModel<EmptyInteractor, Never> {
+    public init () {
+        self.init { .init() }
     }
 }

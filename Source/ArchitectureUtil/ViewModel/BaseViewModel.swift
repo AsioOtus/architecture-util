@@ -14,8 +14,6 @@ open class BaseViewModel<I: PBaseInteractor, Event>: PBaseViewModel {
         subscribe()
     }
 
-    open func subscribe () { }
-
     open func subscribeInteractor () {
         self.interactor
             .objectWillChange
@@ -23,6 +21,8 @@ open class BaseViewModel<I: PBaseInteractor, Event>: PBaseViewModel {
             .sink { [weak self] _ in self?.objectWillChange.send() }
             .store(in: &subscriptions)
     }
+
+    open func subscribe () { }
 }
 
 extension PBaseInteractor {

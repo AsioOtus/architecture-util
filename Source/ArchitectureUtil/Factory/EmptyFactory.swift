@@ -1,5 +1,3 @@
-public struct EmptyFactory<Interactor>: PBaseFactory {
-    public typealias ViewModel = BaseViewModel<EmptyInteractor, Never>
-
+public struct EmptyFactory <ViewModel: PBaseViewModel>: PBaseFactory {
     public init () { }
 }
