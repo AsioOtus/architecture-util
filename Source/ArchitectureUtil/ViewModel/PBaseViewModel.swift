@@ -1,11 +1,11 @@
 import Combine
 import Foundation
 
-public protocol PBaseViewModel<I, Event>: AnyObject, ObservableObject {
-    associatedtype I
+public protocol PBaseViewModel<Interactor, Event>: AnyObject, ObservableObject {
+    associatedtype Interactor
     associatedtype Event
     associatedtype Events: Publisher<Event, Never>
 
-    var interactor: I { get }
+    var interactor: Interactor { get }
     var events: Events { get }
 }

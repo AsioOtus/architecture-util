@@ -1,6 +1,7 @@
 public protocol PModule {
-    associatedtype Interactor: PBaseInteractor = EmptyInteractor
-    associatedtype Event = Never
+    associatedtype Screen
     associatedtype DefaultVM: PBaseViewModel<Interactor, Event> = BaseViewModel<Interactor, Event>
+    associatedtype Event = Never
     associatedtype Factory: PBaseFactory = GenericFactory<DefaultVM>
+    associatedtype Interactor: PBaseInteractor = EmptyInteractor
 }

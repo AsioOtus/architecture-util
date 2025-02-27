@@ -1,13 +1,13 @@
 import Combine
 import Foundation
 
-open class BaseViewModel<I: PBaseInteractor, Event>: PBaseViewModel {
-    public let interactor: I
+open class BaseViewModel<Interactor: PBaseInteractor, Event>: PBaseViewModel {
+    public let interactor: Interactor
 
     public var subscriptions = Set<AnyCancellable>()
     public let events = PassthroughSubject<Event, Never>()
 
-    public init (interactor: I) {
+    public init (interactor: Interactor) {
         self.interactor = interactor
 
         subscribeInteractor()
