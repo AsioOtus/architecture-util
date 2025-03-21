@@ -24,9 +24,3 @@ open class BaseViewModel<Interactor: PBaseInteractor, Event>: PBaseViewModel {
 
     open func subscribe () { }
 }
-
-extension PBaseInteractor {
-    public var baseVm: BaseViewModel<Self, Never> {
-        .init(interactor: self)
-    }
-}
